@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Smart Pricing Optimization</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Smart Pricing Optimization</h1>
+
+        <form method="POST">
+            <label>Current Price:</label>
+            <input type="number" name="price" required>
+
+            <label>Demand Level:</label>
+            <select name="demand">
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+            </select>
+
+            <label>Stock Quantity:</label>
+            <input type="number" name="stock" required>
+
+            <button type="submit">Calculate Price</button>
+        </form>
+        {% if result %}
+        <div class="result">
+            <h2> Suggested price: ₹{{result}}</h2>
+        </div>
+        {% endif %}
+    </div>
+</body>
+
+</html>
